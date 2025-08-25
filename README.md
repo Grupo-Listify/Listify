@@ -20,32 +20,32 @@ Permite crear, organizar y gestionar listas de compras de manera sencilla.
 ## 🗂️ Estructura del proyecto
 
 ```
-shopping-list-maui/
+lystify/
 ├─ src/
-│  └─ ShoppingList/
-│     ├─ App.xaml / App.xaml.cs
-│     ├─ MauiProgram.cs
-│     ├─ Models/
-│     │  ├─ Item.cs
-│     │  └─ Category.cs
-│     ├─ Data/
-│     │  ├─ AppDbContext.cs
-│     │  └─ migrations.sql
-│     ├─ Services/
-│     │  ├─ IItemRepository.cs
-│     │  ├─ ICategoryRepository.cs
-│     │  └─ Implementaciones...
-│     ├─ ViewModels/
-│     │  ├─ ItemsViewModel.cs
-│     │  └─ CategoriesViewModel.cs
-│     └─ Views/
-│        ├─ ItemsPage.xaml
-│        ├─ ItemDetailPage.xaml
-│        └─ CategoriesPage.xaml
+│ └─ Lystify/
+│ ├─ App.xaml / App.xaml.cs
+│ ├─ MauiProgram.cs
+│ ├─ Models/
+│ │ ├─ Item.cs
+│ │ └─ Category.cs
+│ ├─ Data/
+│ │ ├─ AppDbContext.cs
+│ │ └─ migrations.sql
+│ ├─ Services/
+│ │ ├─ IItemRepository.cs
+│ │ ├─ ICategoryRepository.cs
+│ │ └─ Implementaciones...
+│ ├─ ViewModels/
+│ │ ├─ ItemsViewModel.cs
+│ │ └─ CategoriesViewModel.cs
+│ └─ Views/
+│ ├─ ItemsPage.xaml
+│ ├─ ItemDetailPage.xaml
+│ └─ CategoriesPage.xaml
 ├─ tests/
-│  └─ ShoppingList.Tests/
+│ └─ Lystify.Tests/
 ├─ docs/
-│  └─ er-diagram.pdf
+│ └─ er-diagram.pdf
 ├─ .gitignore
 ├─ README.md
 ├─ LICENSE
