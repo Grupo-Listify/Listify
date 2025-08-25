@@ -1,4 +1,4 @@
-# 🛒 CompraSmart (Lista de Compras)
+# 🛒 Listify (Lista de Compras)
 
 Aplicación móvil y de escritorio desarrollada en **.NET MAUI** con arquitectura **MVVM** y persistencia en **SQLite**.  
 Permite crear, organizar y gestionar listas de compras de manera sencilla.
@@ -68,8 +68,8 @@ lystify/
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/tu-usuario/shopping-list-maui.git
-   cd shopping-list-maui/src/ShoppingList
+   git clone https://github.com/kevindoblea/Listify.git
+   cd shopping-list-maui/src/Listify
    ```
 
 2. Restaura los paquetes NuGet:
@@ -97,7 +97,7 @@ lystify/
 ## 🗃️ Base de datos
 
 - Motor: **SQLite**.  
-- Script de creación: [`migrations.sql`](src/ShoppingList/Data/migrations.sql).  
+- Script de creación: [`migrations.sql`](src/Listify/Data/migrations.sql).  
 - Esquema ER: ver [`docs/er-diagram.pdf`](docs/er-diagram.pdf).  
 
 ---
