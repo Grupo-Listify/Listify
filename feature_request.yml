@@ -1,0 +1,43 @@
+name: Feature request
+description: Propón una nueva función o mejora
+labels: [feature]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Necesidad / problema
+      description: ¿Qué problema resuelve esta propuesta? ¿Para quién?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta
+      description: Explica la solución que imaginas. Si hay alternativas, compáralas.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Criterios de aceptación
+      description: ¿Cómo sabremos que está listo? Define criterios medibles.
+      value: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: impact
+    attributes:
+      label: Áreas impactadas (aproximado)
+      options:
+        - label: UI
+        - label: ViewModels / MVVM
+        - label: Servicios / Repositorios / SQLite
+        - label: Build / CI
+        - label: Documentación
+    validations:
+      required: false
