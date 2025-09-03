@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Listify.Data;
 
 namespace Listify
 {
@@ -18,7 +19,11 @@ namespace Listify
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            
+            builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
+            builder.Services.AddSingleton<IDatabaseInitializer, DatabaseInitializer>();
+            builder.Services.AddSingleton<AppShell>();   
+            builder.Services.AddSingleton<MainPage>();   
             return builder.Build();
         }
     }

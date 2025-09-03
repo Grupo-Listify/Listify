@@ -102,3 +102,9 @@ _ReSharper*/
 # Rider
 .idea/
 *.sln.iml
+
+# Ignore DB
+*.db
+*.db3
+*.sqlite
+
