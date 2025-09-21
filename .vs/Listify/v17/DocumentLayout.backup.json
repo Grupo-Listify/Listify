@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\kevin\\source\\repos\\Listify\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|c:\\users\\kevin\\source\\repos\\listify\\viewmodels\\principalvistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|solutionrelative:viewmodels\\principalvistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PrincipalVistaModelo.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\Listify\\ViewModels\\PrincipalVistaModelo.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PrincipalVistaModelo.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\Listify\\ViewModels\\PrincipalVistaModelo.cs",
+              "RelativeToolTip": "ViewModels\\PrincipalVistaModelo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T20:13:25.42Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",

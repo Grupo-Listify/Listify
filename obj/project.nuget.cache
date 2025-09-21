@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pyxSEXqUUpY=",
+  "dgSpecHash": "J2fIpUCIDu8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kevin\\source\\repos\\Listify\\Listify.csproj",
+  "projectFilePath": "C:\\Users\\kevin\\Source\\Repos\\Listify\\Listify.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kevin\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
     "C:\\Users\\kevin\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",

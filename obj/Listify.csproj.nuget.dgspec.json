@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kevin\\source\\repos\\Listify\\Listify.csproj": {}
+    "C:\\Users\\kevin\\Source\\Repos\\Listify\\Listify.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kevin\\source\\repos\\Listify\\Listify.csproj": {
+    "C:\\Users\\kevin\\Source\\Repos\\Listify\\Listify.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kevin\\source\\repos\\Listify\\Listify.csproj",
+        "projectUniqueName": "C:\\Users\\kevin\\Source\\Repos\\Listify\\Listify.csproj",
         "projectName": "Listify",
-        "projectPath": "C:\\Users\\kevin\\source\\repos\\Listify\\Listify.csproj",
+        "projectPath": "C:\\Users\\kevin\\Source\\Repos\\Listify\\Listify.csproj",
         "packagesPath": "C:\\Users\\kevin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kevin\\source\\repos\\Listify\\obj\\",
+        "outputPath": "C:\\Users\\kevin\\Source\\Repos\\Listify\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
