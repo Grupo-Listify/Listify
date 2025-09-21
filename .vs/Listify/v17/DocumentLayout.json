@@ -1,18 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kevin.alvarenga\\Downloads\\repositorio\\",
+  "WorkspaceRootPath": "C:\\Users\\kevin\\source\\repos\\Listify\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|c:\\users\\kevin.alvarenga\\downloads\\repositorio\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|solutionrelative:mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|c:\\users\\kevin.alvarenga\\downloads\\repositorio\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|solutionrelative:mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|c:\\users\\kevin.alvarenga\\downloads\\repositorio\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|solutionrelative:appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|c:\\users\\kevin\\source\\repos\\listify\\viewmodels\\principalvistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DA4FC603-C5D1-4A75-8971-DFE666C24F3C}|Listify.csproj|solutionrelative:viewmodels\\principalvistamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,53 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kevin.alvarenga\\Downloads\\repositorio\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "MainPage.xaml.cs",
-              "ToolTip": "C:\\Users\\kevin.alvarenga\\Downloads\\repositorio\\MainPage.xaml.cs",
-              "RelativeToolTip": "MainPage.xaml.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAUwAkAAAAJAAAAAAAAAA==",
+              "Title": "PrincipalVistaModelo.cs",
+              "DocumentMoniker": "C:\\Users\\kevin\\source\\repos\\Listify\\ViewModels\\PrincipalVistaModelo.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PrincipalVistaModelo.cs",
+              "ToolTip": "C:\\Users\\kevin\\source\\repos\\Listify\\ViewModels\\PrincipalVistaModelo.cs",
+              "RelativeToolTip": "ViewModels\\PrincipalVistaModelo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T21:08:23.366Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainPage.xaml",
-              "DocumentMoniker": "C:\\Users\\kevin.alvarenga\\Downloads\\repositorio\\MainPage.xaml",
-              "RelativeDocumentMoniker": "MainPage.xaml",
-              "ToolTip": "C:\\Users\\kevin.alvarenga\\Downloads\\repositorio\\MainPage.xaml",
-              "RelativeToolTip": "MainPage.xaml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-19T21:07:41.081Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AppShell.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\kevin.alvarenga\\Downloads\\repositorio\\AppShell.xaml.cs",
-              "RelativeDocumentMoniker": "AppShell.xaml.cs",
-              "ToolTip": "C:\\Users\\kevin.alvarenga\\Downloads\\repositorio\\AppShell.xaml.cs",
-              "RelativeToolTip": "AppShell.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T19:43:51.743Z",
+              "WhenOpened": "2025-09-21T20:13:25.42Z",
               "EditorCaption": ""
             }
           ]

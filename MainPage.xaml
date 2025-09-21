@@ -1,16 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--
-    Esta es la página por defecto que genera MAUI cuando creas un proyecto nuevo.
-    Realmente no forma parte de la lógica de la app (tu app usa PrincipalPagina como página principal),
-    pero sirve como ejemplo o base de prueba.
-
-    Contenido:
-    - Una imagen de la mascota de .NET (dotnet_bot.png).
-    - Un texto de bienvenida con dos labels.
-    - Un botón que cuenta cuántas veces se ha hecho clic.
-
-    Nota: Puedes borrar o modificar esta página, no es crítica para la app.
--->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Listify.MainPage">
@@ -19,28 +7,23 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-
-            <!-- Imagen de la mascota .NET -->
             <Image
                 Source="dotnet_bot.png"
                 HeightRequest="185"
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a race car number eight" />
 
-            <!-- Texto principal -->
             <Label
                 Text="Hello, World!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
-            <!-- Subtítulo de bienvenida -->
             <Label
                 Text="Welcome to &#10;.NET Multi-platform App UI"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <!-- Botón que incrementa un contador al hacer clic -->
             <Button
                 x:Name="CounterBtn"
                 Text="Click me" 
