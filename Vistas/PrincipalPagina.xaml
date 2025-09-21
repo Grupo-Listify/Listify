@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!--
+    Esta es la página principal de la app.
+    Aquí se muestra la lista completa de artículos de compras.
+
+    Funcionalidades:
+    - Buscar artículos por nombre con el SearchBar.
+    - Mostrar la lista de artículos en un CollectionView.
+    - Cada artículo tiene acciones de deslizar (editar y eliminar).
+    - Se puede marcar un artículo como comprado (CheckBox).
+    - Botón flotante (+) para agregar un nuevo artículo.
+-->
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -9,22 +20,27 @@
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="10">
 
+            <!-- Barra de búsqueda vinculada al texto del ViewModel -->
             <SearchBar Placeholder="Buscar..." 
                        Text="{Binding TextoBusqueda, Mode=TwoWay}"
                        TextChanged="SearchBar_TextChanged" />
 
+            <!-- Lista de artículos -->
             <CollectionView ItemsSource="{Binding Articulos}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
+                        <!-- SwipeView permite acciones al deslizar -->
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems>
 
+                                    <!-- Botón de editar -->
                                     <SwipeItem Text="Editar"
                                                BackgroundColor="LightBlue"
                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EditarArticuloCommand}"
                                                CommandParameter="{Binding .}" />
 
+                                    <!-- Botón de eliminar -->
                                     <SwipeItem Text="Eliminar"
                                                BackgroundColor="Tomato"
                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EliminarArticuloCommand}"
@@ -33,16 +49,19 @@
                                 </SwipeItems>
                             </SwipeView.RightItems>
 
+                            <!-- Contenido de cada fila de la lista -->
                             <Grid Padding="10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
+                                <!-- CheckBox para marcar si está comprado -->
                                 <CheckBox IsChecked="{Binding Comprado}"
                                           VerticalOptions="Center"
                                           CheckedChanged="CheckBox_CheckedChanged" />
 
+                                <!-- Nombre del artículo, con tachado si está comprado -->
                                 <Label Grid.Column="1"
                                        Text="{Binding Nombre}"
                                        VerticalOptions="Center"
@@ -53,6 +72,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <!-- Botón flotante para agregar nuevo artículo -->
             <Button Text="+" 
                     FontSize="24"
                     WidthRequest="60"

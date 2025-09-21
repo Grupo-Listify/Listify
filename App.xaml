@@ -1,4 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Este archivo define la configuración global de la aplicación.
+    Aquí se registran recursos que estarán disponibles en toda la app.
+
+    Contiene:
+    - Un ResourceDictionary principal.
+    - El convertidor BoolToTextDecorationConverter, que sirve para tachar texto 
+      si el artículo está marcado como comprado.
+    - La importación de estilos de colores y estilos visuales desde archivos externos.
+
+    En resumen: este archivo es como "el punto central de estilos y recursos"
+    que todas las páginas pueden usar.
+-->
 <Application
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -8,8 +21,10 @@
     <Application.Resources>
         <ResourceDictionary>
 
+            <!-- Convertidor para tachar el texto si un artículo ya está comprado -->
             <local:BoolToTextDecorationConverter x:Key="BoolToTextDecorationConverter" />
 
+            <!-- Importa colores y estilos desde archivos XAML externos -->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

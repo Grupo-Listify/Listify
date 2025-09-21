@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
+<!-- 
+    Esta es la página para editar o agregar un artículo.
+    Tiene un formulario muy sencillo con:
+    - Un campo para el nombre
+    - Un campo para la cantidad
+    - Dos botones: Guardar y Cancelar
+
+    Todo está conectado al ViewModel (EditarArticuloVistaModelo) 
+    usando bindings.
+-->
 <ContentPage 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -6,16 +16,22 @@
     Title="Editar Artículo">
 
     <ContentPage.Content>
+        <!-- Layout principal: los controles se apilan uno debajo del otro -->
         <StackLayout Padding="20" Spacing="20">
 
+            <!-- Etiqueta + caja de texto para el nombre -->
             <Label Text="Nombre" />
             <Entry Text="{Binding Articulo.Nombre}" Placeholder="Ej: Leche" />
 
+            <!-- Etiqueta + caja de texto para la cantidad -->
             <Label Text="Cantidad" />
             <Entry Text="{Binding Articulo.Cantidad}" Keyboard="Numeric" />
 
+            <!-- Botones alineados a la derecha -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="10">
+                <!-- Botón cancelar: vuelve sin guardar -->
                 <Button Text="Cancelar" Command="{Binding CancelarCommand}" />
+                <!-- Botón guardar: valida y guarda los datos -->
                 <Button Text="Guardar" Command="{Binding GuardarCommand}" />
             </StackLayout>
 

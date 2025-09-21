@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    Este archivo define la navegación principal de la app usando Shell.
+    Con Shell podemos organizar las páginas como pestañas, menús, etc.
+
+    En este caso:
+    - Se usa un TabBar con una sola pestaña llamada "Listify".
+    - Esa pestaña carga la página PrincipalPagina, que es donde
+      se muestra la lista de artículos.
+    - Se le asigna una ruta ("PrincipalPagina") para poder navegar
+      desde otras partes de la app con GoToAsync.
+-->
 <Shell
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -6,6 +17,7 @@
     x:Class="Listify.AppShell">
 
     <TabBar>
+        <!-- Pestaña principal de la aplicación -->
         <ShellContent
             Title="Listify"
             ContentTemplate="{DataTemplate vistas:PrincipalPagina}"
