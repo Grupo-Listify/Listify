@@ -30,6 +30,20 @@ public partial class PrincipalPagina : ContentPage
     }
 
     /// <summary>
+    /// Se ejecuta cada vez que la pagina vuelve a ser visible.
+    /// Recarga la lista desde BD para reflejar articulos nuevos o editados.
+    /// </summary>
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (BindingContext is PrincipalVistaModelo vm)
+        {
+            await vm.CargarArticulosCommand.ExecuteAsync(null);
+        }
+    }
+
+    /// <summary>
     /// Maneja los cambios de texto en la barra de busqueda.
     /// Llama al comando de busqueda del viewmodel con el nuevo texto.
     /// </summary>
