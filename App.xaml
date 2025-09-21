@@ -5,11 +5,36 @@
     xmlns:local="clr-namespace:Listify.Recursos"
     x:Class="Listify.App">
 
+    <!--
+      App.xaml
+      Archivo de arranque de la aplicacion MAUI.
+      Aqui se declaran recursos globales que estaran disponibles en todas las paginas.
+      - Convertidores
+      - Colores y estilos
+      Notas:
+      * Usa {StaticResource ...} para valores que no cambian.
+      * Usa {DynamicResource ...} si esperas cambios en tiempo de ejecucion (ej: tema claro/oscuro).
+    -->
+
     <Application.Resources>
         <ResourceDictionary>
 
+            <!--
+              Convertidor global:
+              BoolToTextDecorationConverter convierte bool -> TextDecorations.
+              true => Strikethrough (texto tachado), false => None.
+              Ejemplo de uso en XAML:
+              TextDecorations="{Binding Comprado, Converter={StaticResource BoolToTextDecorationConverter}}"
+            -->
             <local:BoolToTextDecorationConverter x:Key="BoolToTextDecorationConverter" />
 
+            <!--
+              Diccionarios fusionados
+              Se cargan colores y estilos comunes para toda la app.
+              Asegurate de que las rutas existan:
+              - Resources/Styles/Colors.xaml: define paleta de colores
+              - Resources/Styles/Styles.xaml: define estilos para controles (Label, Button, etc)
+            -->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

@@ -8,24 +8,44 @@
     x:Name="Pagina"
     Title="Lista de Compras">
 
+    <!--
+      Pagina principal.
+      Muestra la lista de articulos, permite buscarlos, editarlos, eliminarlos
+      y marcar como comprados. Se espera un BindingContext de tipo PrincipalVistaModelo.
+    -->
+
+    <!-- recursos usados por la pagina (converter para tachar texto si esta comprado) -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- convierte bool a TextDecorations (true -> Strikethrough) -->
+            <recursos:BoolToTextDecorationConverter x:Key="BoolToTextDecorationConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="10">
 
+            <!-- barra de busqueda: actualiza el texto del viewmodel y dispara busqueda incremental -->
             <SearchBar Placeholder="Buscar..."
                        Text="{Binding TextoBusqueda, Mode=TwoWay}"
                        TextChanged="SearchBar_TextChanged" />
 
+            <!-- lista de articulos obtenidos desde el viewmodel -->
             <CollectionView ItemsSource="{Binding Articulos}">
                 <CollectionView.ItemTemplate>
+                    <!-- cada item es un Articulo -->
                     <DataTemplate x:DataType="local:Articulo">
+                        <!-- acciones deslizables: editar y eliminar -->
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Execute">
+                                    <!-- boton editar: navega a la pagina de edicion con el articulo -->
                                     <SwipeItem Text="Editar"
                                                BackgroundColor="LightBlue"
                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EditarArticuloCommand}"
                                                CommandParameter="{Binding .}" />
 
+                                    <!-- boton eliminar: pide confirmacion y elimina -->
                                     <SwipeItem Text="Eliminar"
                                                BackgroundColor="Tomato"
                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EliminarArticuloCommand}"
@@ -33,16 +53,20 @@
                                 </SwipeItems>
                             </SwipeView.RightItems>
 
+                            <!-- fila del item: check, nombre y boton eliminar -->
                             <Grid Padding="10" ColumnDefinitions="Auto,*,Auto">
+                                <!-- check que cambia el estado Comprado; usa evento para actualizar -->
                                 <CheckBox IsChecked="{Binding Comprado, Mode=TwoWay}"
                                           VerticalOptions="Center"
                                           CheckedChanged="CheckBox_CheckedChanged" />
 
+                                <!-- nombre del articulo; se tacha si esta comprado -->
                                 <Label Grid.Column="1"
                                        Text="{Binding Nombre}"
                                        VerticalOptions="Center"
                                        TextDecorations="{Binding Comprado, Converter={StaticResource BoolToTextDecorationConverter}}" />
 
+                                <!-- boton eliminar rapido (igual que el swipe) -->
                                 <Button Grid.Column="2" Text="Eliminar"
                                         Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EliminarArticuloCommand}"
                                         CommandParameter="{Binding .}"
@@ -53,6 +77,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <!-- boton flotante simple para agregar un nuevo articulo -->
             <Button Text="+"
                     FontSize="24"
                     WidthRequest="60"
