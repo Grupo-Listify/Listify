@@ -1,0 +1,33 @@
+name: Reporte de bug
+description: Algo no funciona como se espera
+labels: ["type:bug", "prio:p2"]
+body:
+  - type: textarea
+    id: resumen
+    attributes:
+      label: Resumen
+      description: ¿Qué pasó y qué esperabas?
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir
+      value: |
+        1. ...
+        2. ...
+        3. ...
+  - type: input
+    id: version
+    attributes:
+      label: Versión / commit
+      description: Tag (vX.Y.Z) o hash corto
+  - type: dropdown
+    id: plataforma
+    attributes:
+      label: Plataforma
+      options: ["Android", "Windows", "iOS"]
+  - type: textarea
+    id: evidencias
+    attributes:
+      label: Logs / capturas

@@ -1,0 +1,21 @@
+name: Solicitud de mejora
+description: Proponer una nueva funcionalidad o mejora
+labels: ["type:feature", "prio:p3"]
+body:
+  - type: textarea
+    id: valor
+    attributes:
+      label: Propuesta y valor para el usuario
+    validations:
+      required: true
+  - type: textarea
+    id: alcance
+    attributes:
+      label: Alcance mínimo (MVP)
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de aceptación
+      value: |
+        - [ ] ...
+        - [ ] ...
