@@ -1,36 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using SQLite;
 
 namespace Listify.Modelos
 {
-    // Esta clase representa un artículo de la lista de compras.
-    // Básicamente es la tabla "articulos" en SQLite.
-    // Aquí guardamos el nombre, cuántos queremos y si ya se compró o no.
     [Table("articulos")]
-    public class Articulo
+    public class Articulo : INotifyPropertyChanged
     {
-        // Id único del artículo.
-        // SQLite lo genera automáticamente al insertar.
-        // Si vale 0 significa que todavía no se ha guardado en la base de datos.
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        // Nombre del artículo.
-        // Es obligatorio, no debería estar vacío.
-        // Ejemplo: "Leche", "Pan", etc.
+        private string nombre = string.Empty;
         [NotNull]
-        public string Nombre { get; set; } = string.Empty;
+        public string Nombre
+        {
+            get => nombre;
+            set
+            {
+                if (nombre == value) return;
+                nombre = value;
+                OnPropertyChanged(nameof(Nombre));
+            }
+        }
 
-        // Cantidad de unidades que quiero comprar.
-        // Por defecto es 1, pero puedo poner más.
-        public int Cantidad { get; set; } = 1;
+        private int cantidad = 1;
+        public int Cantidad
+        {
+            get => cantidad;
+            set
+            {
+                if (cantidad == value) return;
+                cantidad = value;
+                OnPropertyChanged(nameof(Cantidad));
+            }
+        }
 
-        // Indica si ya lo compré o todavía está pendiente.
-        // Por defecto siempre es "false" (pendiente).
-        public bool Comprado { get; set; } = false;
+        private bool comprado = false;
+        public bool Comprado
+        {
+            get => comprado;
+            set
+            {
+                if (comprado == value) return;
+                comprado = value;
+                OnPropertyChanged(nameof(Comprado));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }

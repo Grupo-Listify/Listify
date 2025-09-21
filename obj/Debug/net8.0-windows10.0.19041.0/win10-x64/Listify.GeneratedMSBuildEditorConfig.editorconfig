@@ -15,7 +15,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Listify
-build_property.ProjectDir = C:\Users\kevin.alvarenga\Downloads\repositorio\
+build_property.ProjectDir = C:\Users\kevin\source\repos\Listify\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTAotExportsEnabled = 
@@ -27,43 +27,43 @@ build_property.CsWinRTUseWindowsUIXamlProjections = false
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/kevin.alvarenga/Downloads/repositorio/App.xaml]
+[C:/Users/kevin/source/repos/Listify/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Listify.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/kevin.alvarenga/Downloads/repositorio/AppShell.xaml]
+[C:/Users/kevin/source/repos/Listify/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Listify.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/kevin.alvarenga/Downloads/repositorio/MainPage.xaml]
+[C:/Users/kevin/source/repos/Listify/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Listify.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/kevin.alvarenga/Downloads/repositorio/Resources/Styles/Colors.xaml]
+[C:/Users/kevin/source/repos/Listify/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Listify.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/kevin.alvarenga/Downloads/repositorio/Resources/Styles/Styles.xaml]
+[C:/Users/kevin/source/repos/Listify/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Listify.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/kevin.alvarenga/Downloads/repositorio/Vistas/EditarArticuloPagina.xaml]
+[C:/Users/kevin/source/repos/Listify/Vistas/EditarArticuloPagina.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Listify.Vistas.EditarArticuloPagina.xaml
 build_metadata.AdditionalFiles.TargetPath = Vistas\EditarArticuloPagina.xaml
 build_metadata.AdditionalFiles.RelativePath = Vistas\EditarArticuloPagina.xaml
 
-[C:/Users/kevin.alvarenga/Downloads/repositorio/Vistas/PrincipalPagina.xaml]
+[C:/Users/kevin/source/repos/Listify/Vistas/PrincipalPagina.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Listify.Vistas.PrincipalPagina.xaml
 build_metadata.AdditionalFiles.TargetPath = Vistas\PrincipalPagina.xaml

@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Listify")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+8468e4697239d2337aeb86092c57aa4cf50cb0ea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+488a9f9db4c8ec21afd0bd80e8c67802eba9f8c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Listify")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Listify")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
