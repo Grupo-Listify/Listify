@@ -5,7 +5,24 @@
     xmlns:vistas="clr-namespace:Listify.Vistas"
     x:Class="Listify.AppShell">
 
+    <!--
+      AppShell
+      Contenedor de navegacion de toda la aplicacion.
+
+      Que hace:
+      - Muestra una TabBar con una sola pestana.
+      - Carga la pagina principal (PrincipalPagina) cuando inicia.
+      - Define la ruta "PrincipalPagina" para poder navegar por nombre.
+
+      Nota sobre rutas:
+      - En el codigo se navega a "EditarArticuloPagina" (GoToAsync("EditarArticuloPagina")).
+      - Debes registrar esa ruta en AppShell.xaml.cs, por ejemplo:
+          Routing.RegisterRoute("EditarArticuloPagina", typeof(Listify.Vistas.EditarArticuloPagina));
+      - Con eso, la navegacion funcionara sin abrir una nueva pestana.
+    -->
+
     <TabBar>
+        <!-- Pestana principal de la app -->
         <ShellContent
             Title="Listify"
             ContentTemplate="{DataTemplate vistas:PrincipalPagina}"

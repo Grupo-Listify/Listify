@@ -3,19 +3,32 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Listify.Vistas.EditarArticuloPagina"
-    Title="Editar Artículo">
+    Title="Editar Articulo">
+
+    <!--
+      Pagina para crear o editar un articulo.
+      Se espera un BindingContext de tipo EditarArticuloVistaModelo.
+      Usa bindings para Nombre y Cantidad, y comandos para Guardar y Cancelar.
+    -->
 
     <ContentPage.Content>
         <StackLayout Padding="20" Spacing="20">
 
+            <!-- Campo: nombre del articulo -->
             <Label Text="Nombre" />
+            <!-- Entry vinculado a Articulo.Nombre. Placeholder con ejemplo -->
             <Entry Text="{Binding Articulo.Nombre}" Placeholder="Ej: Leche" />
 
+            <!-- Campo: cantidad del articulo -->
             <Label Text="Cantidad" />
+            <!-- Entry vinculado a Articulo.Cantidad. Teclado numerico para facilitar ingreso -->
             <Entry Text="{Binding Articulo.Cantidad}" Keyboard="Numeric" />
 
+            <!-- Barra de acciones alineada a la derecha -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="10">
+                <!-- Boton que vuelve atras sin guardar -->
                 <Button Text="Cancelar" Command="{Binding CancelarCommand}" />
+                <!-- Boton que valida y guarda cambios -->
                 <Button Text="Guardar" Command="{Binding GuardarCommand}" />
             </StackLayout>
 
