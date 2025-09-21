@@ -1,0 +1,11 @@
+# Extra (seguridad y artefactos)
+*.user
+*.userosscache
+*.suo
+.vs/
+bin/
+obj/
+*.apk
+*.aab
+*.msix*
+artifacts/
