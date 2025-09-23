@@ -14,7 +14,6 @@ public partial class PrincipalPagina : ContentPage
 {
     /// <summary>
     /// Atajo para obtener el ViewModel tipado desde el BindingContext.
-    /// El operador ! indica al compilador que aqui no sera nulo luego de inicializar el contexto.
     /// </summary>
     private PrincipalVistaModelo VistaModelo => BindingContext as PrincipalVistaModelo;
 
@@ -25,7 +24,6 @@ public partial class PrincipalPagina : ContentPage
     public PrincipalPagina()
     {
         InitializeComponent();
-        // obtiene una instancia del viewmodel desde el contenedor y la asigna al contexto de enlace
         BindingContext = ServicioLocalizador.Obtener<PrincipalVistaModelo>();
     }
 
@@ -47,30 +45,22 @@ public partial class PrincipalPagina : ContentPage
     /// Maneja los cambios de texto en la barra de busqueda.
     /// Llama al comando de busqueda del viewmodel con el nuevo texto.
     /// </summary>
-    /// <param name="sender">SearchBar que dispara el evento.</param>
-    /// <param name="e">Valores de texto anterior y nuevo.</param>
     private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
     {
-        // Ejecuta la busqueda de forma asincrona (no bloquea la UI)
         await VistaModelo!.BuscarArticulosCommand.ExecuteAsync(e.NewTextValue);
     }
 
     /// <summary>
-    /// Maneja el cambio del CheckBox que marca un articulo como comprado o pendiente.
-    /// Si el valor ya coincide, no hace nada. Si cambia, actualiza en la base de datos.
+    /// Marca un articulo como comprado/pendiente y PERSISTE SIEMPRE el cambio.
+    /// Nota: con Mode=TwoWay el binding ya actualizo Articulo.Comprado antes de este evento.
     /// </summary>
-    /// <param name="sender">CheckBox que cambio.</param>
-    /// <param name="e">Nuevo valor del CheckBox.</param>
     private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
-        // verifica que el sender sea un CheckBox y su contexto sea un Articulo
         if (sender is CheckBox checkBox && checkBox.BindingContext is Articulo articulo)
         {
-            // si el estado del modelo ya es el mismo que el del CheckBox, salir
-            if (articulo.Comprado == e.Value)
-                return;
-
-            // obtiene el viewmodel del contexto y actualiza el estado
+            // Persistimos siempre el nuevo valor (e.Value).
+            // Evitamos el return cuando articulo.Comprado == e.Value,
+            // porque eso impedia llamar a la BD.
             if (BindingContext is PrincipalVistaModelo vm)
             {
                 await vm.EstablecerCompradoAsync(articulo, e.Value);
