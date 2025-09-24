@@ -8,44 +8,58 @@
     x:Name="Pagina"
     Title="Lista de Compras">
 
-    <!--
-      Pagina principal.
-      Muestra la lista de articulos, permite buscarlos, editarlos, eliminarlos
-      y marcar como comprados. Se espera un BindingContext de tipo PrincipalVistaModelo.
-    -->
-
-    <!-- recursos usados por la pagina (converter para tachar texto si esta comprado) -->
+    <!-- Converter existente -->
     <ContentPage.Resources>
         <ResourceDictionary>
-            <!-- convierte bool a TextDecorations (true -> Strikethrough) -->
             <recursos:BoolToTextDecorationConverter x:Key="BoolToTextDecorationConverter" />
+
+            <!-- Paleta local (solo UI) -->
+            <Color x:Key="CardBgLight">#FFFFFF</Color>
+            <Color x:Key="CardBgDark">#1E1E1E</Color>
+            <Color x:Key="CardBorderLight">#E6E6E6</Color>
+            <Color x:Key="CardBorderDark">#2B2B2B</Color>
+
+            <Color x:Key="PillBgLight">#EEF2FF</Color>
+            <Color x:Key="PillBgDark">#2B2F3A</Color>
+            <Color x:Key="PillTextLight">#304FFE</Color>
+            <Color x:Key="PillTextDark">#9AB0FF</Color>
+
+            <Color x:Key="EditBg">#4F46E5</Color>
+            <Color x:Key="DeleteBg">#EF4444</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout Padding="10" Spacing="10">
+        <Grid Padding="12" RowDefinitions="Auto,*">
 
-            <!-- barra de busqueda: actualiza el texto del viewmodel y dispara busqueda incremental -->
-            <SearchBar Placeholder="Buscar..."
+            <!-- Búsqueda -->
+            <SearchBar Grid.Row="0"
+                       Placeholder="Buscar..."
+                       Margin="0,0,0,8"
                        Text="{Binding TextoBusqueda, Mode=TwoWay}"
                        TextChanged="SearchBar_TextChanged" />
 
-            <!-- lista de articulos obtenidos desde el viewmodel -->
-            <CollectionView ItemsSource="{Binding Articulos}">
+            <!-- Lista -->
+            <CollectionView Grid.Row="1"
+                            ItemsSource="{Binding Articulos}"
+                            SelectionMode="None"
+                            ItemSizingStrategy="MeasureAllItems">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
-                    <!-- cada item es un Articulo -->
+                    <!-- Cada item es un Articulo -->
                     <DataTemplate x:DataType="local:Articulo">
-                        <!-- acciones deslizables: editar y eliminar -->
+
+                        <!-- Acciones por swipe (se mantienen) -->
                         <SwipeView>
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Execute">
-                                    <!-- boton editar: navega a la pagina de edicion con el articulo -->
                                     <SwipeItem Text="Editar"
                                                BackgroundColor="LightBlue"
                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EditarArticuloCommand}"
                                                CommandParameter="{Binding .}" />
-
-                                    <!-- boton eliminar: pide confirmacion y elimina -->
                                     <SwipeItem Text="Eliminar"
                                                BackgroundColor="Tomato"
                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EliminarArticuloCommand}"
@@ -53,41 +67,105 @@
                                 </SwipeItems>
                             </SwipeView.RightItems>
 
-                            <!-- fila del item: check, nombre y boton eliminar -->
-                            <Grid Padding="10" ColumnDefinitions="Auto,*,Auto">
-                                <!-- check que cambia el estado Comprado; usa evento para actualizar -->
-                                <CheckBox IsChecked="{Binding Comprado, Mode=TwoWay}"
-                                          VerticalOptions="Center"
-                                          CheckedChanged="CheckBox_CheckedChanged" />
+                            <!-- Tarjeta del item (solo UI) -->
+                            <Grid>
+                                <Frame Margin="0,6"
+                                       Padding="12"
+                                       HasShadow="True"
+                                       CornerRadius="14"
+                                       BackgroundColor="{AppThemeBinding Light={StaticResource CardBgLight}, Dark={StaticResource CardBgDark}}"
+                                       BorderColor="{AppThemeBinding Light={StaticResource CardBorderLight}, Dark={StaticResource CardBorderDark}}">
 
-                                <!-- nombre del articulo; se tacha si esta comprado -->
-                                <Label Grid.Column="1"
-                                       Text="{Binding Nombre}"
-                                       VerticalOptions="Center"
-                                       TextDecorations="{Binding Comprado, Converter={StaticResource BoolToTextDecorationConverter}}" />
+                                    <!-- Fila: Check | Nombre (tachado) | Pill Cantidad | Editar | Eliminar -->
+                                    <Grid ColumnDefinitions="Auto,*,Auto,Auto,Auto"
+                                          ColumnSpacing="12">
 
-                                <!-- boton eliminar rapido (igual que el swipe) -->
-                                <Button Grid.Column="2" Text="Eliminar"
-                                        Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EliminarArticuloCommand}"
-                                        CommandParameter="{Binding .}"
-                                        VerticalOptions="Center" />
+                                        <!-- Comprado (misma lógica) -->
+                                        <CheckBox IsChecked="{Binding Comprado, Mode=TwoWay}"
+                                                  VerticalOptions="Center"
+                                                  CheckedChanged="CheckBox_CheckedChanged" />
+
+                                        <!-- Nombre + tachado via converter -->
+                                        <Label Grid.Column="1"
+                                               VerticalOptions="Center"
+                                               FontAttributes="Bold"
+                                               FontSize="16"
+                                               TextDecorations="{Binding Comprado, Converter={StaticResource BoolToTextDecorationConverter}}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Nombre}" />
+                                                    <Span Text=" (x" />
+                                                    <Span Text="{Binding Cantidad}" />
+                                                    <Span Text=")" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <!-- Cantidad como "pill" -->
+                                        <Frame Grid.Column="2"
+                                               Padding="10,4"
+                                               HasShadow="False"
+                                               CornerRadius="12"
+                                               BackgroundColor="{AppThemeBinding Light={StaticResource PillBgLight}, Dark={StaticResource PillBgDark}}"
+                                               VerticalOptions="Center">
+                                            <Label Text="{Binding Cantidad, StringFormat='x{0}'}"
+                                                   TextColor="{AppThemeBinding Light={StaticResource PillTextLight}, Dark={StaticResource PillTextDark}}"
+                                                   FontAttributes="Bold"
+                                                   FontSize="12" />
+                                        </Frame>
+
+                                        <!-- EDITAR (mismos Commands) -->
+                                        <Button Grid.Column="3"
+                                                Text="Editar"
+                                                Padding="14,8"
+                                                CornerRadius="10"
+                                                BackgroundColor="{StaticResource EditBg}"
+                                                TextColor="White"
+                                                VerticalOptions="Center"
+                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EditarArticuloCommand}"
+                                                CommandParameter="{Binding .}" />
+
+                                        <!-- ELIMINAR (mismos Commands) -->
+                                        <Button Grid.Column="4"
+                                                Text="Eliminar"
+                                                Padding="14,8"
+                                                CornerRadius="10"
+                                                BackgroundColor="{StaticResource DeleteBg}"
+                                                TextColor="White"
+                                                VerticalOptions="Center"
+                                                Command="{Binding Source={x:Reference Pagina}, Path=BindingContext.EliminarArticuloCommand}"
+                                                CommandParameter="{Binding .}" />
+                                    </Grid>
+
+                                    <!-- Si está Comprado, bajamos opacidad (UI) -->
+                                    <Frame.Triggers>
+                                        <DataTrigger TargetType="Frame"
+                                                     Binding="{Binding Comprado}"
+                                                     Value="True">
+                                            <Setter Property="Opacity" Value="0.65" />
+                                        </DataTrigger>
+                                    </Frame.Triggers>
+                                </Frame>
                             </Grid>
                         </SwipeView>
+
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <!-- boton flotante simple para agregar un nuevo articulo -->
-            <Button Text="+"
-                    FontSize="24"
-                    WidthRequest="60"
-                    HeightRequest="60"
-                    CornerRadius="30"
-                    HorizontalOptions="End"
-                    VerticalOptions="End"
-                    BackgroundColor="DodgerBlue"
-                    TextColor="White"
-                    Command="{Binding AgregarArticuloCommand}" />
-        </StackLayout>
+            <!-- Botón flotante Agregar (sin cambios de lógica) -->
+            <Grid Grid.RowSpan="2"
+                  HorizontalOptions="End"
+                  VerticalOptions="End">
+                <Button Text="+"
+                        FontSize="26"
+                        WidthRequest="60"
+                        HeightRequest="60"
+                        CornerRadius="30"
+                        BackgroundColor="DodgerBlue"
+                        TextColor="White"
+                        Command="{Binding AgregarArticuloCommand}" />
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
